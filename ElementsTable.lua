@@ -1,4 +1,4 @@
-Elements = {}
+local Elements = {}
 
 
 --------------------------------------------------FIRST PERIOD--------------------------------------------------
@@ -962,3 +962,43 @@ Elements[118] = {
 	Classification = "Unknown",
 	Electrons = {2,8,18,32,32,18,8},
 }
+
+
+function Reverse (t)
+    local r={}
+    for k,v in pairs(t) do
+        r[v]=k
+    end
+    return r
+end
+
+function Locateinit (t,s)
+    local reversedElements={}
+    for k,v in pairs(t) do
+        if type(v[s]) ~= "nil" then
+            reversedElements[v[s]]=k
+        end
+    end
+    return reversedElements
+end
+
+function Locatemain (t,search,element,r)
+    local index = Locateinit(t,search)[element]
+    local TheElement = t[index]
+    if type(TheElement) == "table" then
+        if type(TheElement[r])=="table" then
+            return "{"..table.concat(TheElement[r],",").."}"
+        else
+            if TheElement[r]~=nil then
+                return TheElement[r]
+            end
+        end
+    end
+end
+
+local function locate(I,W,O)
+	return locatemain(Elements,I,W,O)
+End
+
+print(locate("Element","H","Name"))
+	
