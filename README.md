@@ -2,6 +2,7 @@
 ---
 This is a lua module to use the Periodic Table
 
+## Usage
 |Method                |Description|
 | ------------------- |  ---------------------------------------------------- |
 |locate(I,W,O)| I: Type of element to be searched </br> W: Element to be searched </br> O: Return type|
