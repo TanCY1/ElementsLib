@@ -964,7 +964,7 @@ Elements[118] = {
 }
 
 
-function Reverse (t)
+local function Reverse (t)
     local r={}
     for k,v in pairs(t) do
         r[v]=k
@@ -972,7 +972,7 @@ function Reverse (t)
     return r
 end
 
-function Locateinit (t,s)
+local function Locateinit (t,s)
     local reversedElements={}
     for k,v in pairs(t) do
         if type(v[s]) ~= "nil" then
@@ -982,7 +982,7 @@ function Locateinit (t,s)
     return reversedElements
 end
 
-function Locatemain (t,search,element,r)
+local function Locatemain (t,search,element,r)
     local index = Locateinit(t,search)[element]
     local TheElement = t[index]
     if type(TheElement) == "table" then
@@ -997,8 +997,9 @@ function Locatemain (t,search,element,r)
 end
 
 local function locate(I,W,O)
-	return locatemain(Elements,I,W,O)
-End
+	return Locatemain(Elements,I,W,O)
+end
 
-print(locate("Element","H","Name"))
+
+return {locate=locate}
 	
