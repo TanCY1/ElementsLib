@@ -1,3 +1,6 @@
+
+
+---Table of Elements
 local Elements = {}
 
 
@@ -996,10 +999,22 @@ local function Locatemain (t,search,element,r)
     end
 end
 
+--- Locates something of an element
+---@param I string
+---@param W string
+---@param O string
+---@return string
 local function locate(I,W,O)
 	return Locatemain(Elements,I,W,O)
 end
 
 
-return {locate=locate}
+
+	
+
+		
+
+---A lua module relating to the periodic table
+return {locate=locate,
+		table=Elements}
 	
