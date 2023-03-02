@@ -2,969 +2,1432 @@
 
 ---Table of Elements
 local Elements = {}
-
-
---------------------------------------------------FIRST PERIOD--------------------------------------------------
+Elements[0] = {
+	Symbol = "n",
+	Name = "Neutron",
+	ProtonNumber = "0",
+	Density = "None",
+	Mass = "1.00866491597",
+	Classification = "Nonmetal",
+	
+}
 
 Elements[1] = {
-	Position = {1,1},
 	Symbol = "H",
 	Name = "Hydrogen",
+	ProtonNumber = "1",
+	Density = "0.0708",
+	Mass = "1.00794",
 	Classification = "Nonmetal",
-	Electrons = {1},
+	Group = "1",
+	Block = "s",
+	
 }
-
 
 Elements[2] = {
-	Position = {18,1},
 	Symbol = "He",
 	Name = "Helium",
-	Classification = "Noble gas",
-	Electrons = {2},
+	ProtonNumber = "2",
+	Density = "0.122",
+	Mass = "4.002602",
+	Classification = "Noble Gas",
+	Group = "18",
+	Block = "s",
+	
 }
 
---------------------------------------------------SECOND PERIOD--------------------------------------------------
-
 Elements[3] = {
-	Position = {1,2},
 	Symbol = "Li",
 	Name = "Lithium",
-	Classification = "Alkali metal",
-	Electrons = {2,1},
+	ProtonNumber = "3",
+	Density = "0.534",
+	Mass = "6.941",
+	Classification = "Alkalli Metal",
+	Group = "1",
+	Block = "s",
+	
 }
 
 Elements[4] = {
-	Position = {2,2},
 	Symbol = "Be",
 	Name = "Beryllium",
-	Classification = "Alkaline earth metal",
-	Electrons = {2,2},
+	ProtonNumber = "4",
+	Density = "1.848",
+	Mass = "9.012182",
+	Classification = "Alkalli Earth Metal",
+	Group = "2",
+	Block = "s",
+	
 }
 
 Elements[5] = {
-	Position = {13,2},
 	Symbol = "B",
 	Name = "Boron",
+	ProtonNumber = "5",
+	Density = "2.34",
+	Mass = "10.811",
 	Classification = "Metalloid",
-	Electrons = {2,3},
+	Group = "13",
+	Block = "p",
+	
 }
 
 Elements[6] = {
-	Position = {14,2},
 	Symbol = "C",
 	Name = "Carbon",
+	ProtonNumber = "6",
+	Density = "2.2",
+	Mass = "12.0107",
 	Classification = "Nonmetal",
-	Electrons = {2,4}
+	Group = "14",
+	Block = "p",
+	
 }
 
 Elements[7] = {
-	Position = {15,2},
 	Symbol = "N",
 	Name = "Nitrogen",
+	ProtonNumber = "7",
+	Density = "0.808",
+	Mass = "14.0067",
 	Classification = "Nonmetal",
-	Electrons = {2,5},
+	Group = "15",
+	Block = "p",
+	
 }
 
 Elements[8] = {
-	Position = {16,2},
 	Symbol = "O",
 	Name = "Oxygen",
+	ProtonNumber = "8",
+	Density = "1.14",
+	Mass = "15.9994",
 	Classification = "Nonmetal",
-	Electrons = {2,6},
+	Group = "16",
+	Block = "p",
+	
 }
 
 Elements[9] = {
-	Position = {17,2},
 	Symbol = "F",
 	Name = "Fluorine",
-	Classification = "Nonmetal",
-	Electrons = {2,7},
+	ProtonNumber = "9",
+	Density = "1.5",
+	Mass = "18.9984032",
+	Classification = "Transition Metal",
+	Group = "17",
+	Block = "p",
+	
 }
 
 Elements[10] = {
-	Position = {18,2},
 	Symbol = "Ne",
 	Name = "Neon",
-	Classification = "Noble gas",
-	Electrons = {2,8},
+	ProtonNumber = "10",
+	Density = "1.207",
+	Mass = "20.1797",
+	Classification = "Noble Gas",
+	Group = "18",
+	Block = "p",
+	
 }
 
---------------------------------------------------THIRD PERIOD--------------------------------------------------
-
 Elements[11] = {
-	Position = {1,3},
 	Symbol = "Na",
 	Name = "Sodium",
-	Classification = "Alkali metal",
-	Electrons = {2,8,1},
+	ProtonNumber = "11",
+	Density = "0.971",
+	Mass = "22.98977",
+	Classification = "Alkalli Metal",
+	Group = "1",
+	Block = "s",
+	
 }
 
 Elements[12] = {
-	Position = {2,3},
 	Symbol = "Mg",
 	Name = "Magnesium",
-	Classification = "Alkaline earth metal",
-	Electrons = {2,8,2},
+	ProtonNumber = "12",
+	Density = "1.738",
+	Mass = "24.305",
+	Classification = "Alkalli Earth Metal",
+	Group = "2",
+	Block = "s",
+	
 }
 
 Elements[13] = {
-	Position = {13,3},
 	Symbol = "Al",
 	Name = "Aluminum",
+	ProtonNumber = "13",
+	Density = "2.6989",
+	Mass = "26.981538",
 	Classification = "Metal",
-	Electrons = {2,8,3},
+	Group = "13",
+	Block = "p",
+	
 }
 
 Elements[14] = {
-	Position = {14,3},
 	Symbol = "Si",
 	Name = "Silicon",
+	ProtonNumber = "14",
+	Density = "2.33",
+	Mass = "28.0855",
 	Classification = "Metalloid",
-	Electrons = {2,8,4},
+	Group = "14",
+	Block = "p",
+	
 }
 
 Elements[15] = {
-	Position = {15,3},
 	Symbol = "P",
-	Name = "Phosphorous",
+	Name = "Phosphorus",
+	ProtonNumber = "15",
+	Density = "1.82",
+	Mass = "30.973761",
 	Classification = "Nonmetal",
-	Electrons = {2,8,5},
+	Group = "15",
+	Block = "p",
+	
 }
 
 Elements[16] = {
-	Position = {16,3},
 	Symbol = "S",
 	Name = "Sulfur",
+	ProtonNumber = "16",
+	Density = "2.07",
+	Mass = "32.065",
 	Classification = "Nonmetal",
-	Electrons = {2,8,6},
+	Group = "16",
+	Block = "p",
+	
 }
 
 Elements[17] = {
-	Position = {17,3},
 	Symbol = "Cl",
 	Name = "Chlorine",
-	Classification = "Nonmetal",
-	Electrons = {2,8,7},
+	ProtonNumber = "17",
+	Density = "1.56",
+	Mass = "35.453",
+	Classification = "Transition Metal",
+	Group = "17",
+	Block = "p",
+	
 }
 
 Elements[18] = {
-	Position = {18,3},
 	Symbol = "Ar",
 	Name = "Argon",
-	Classification = "Noble gas",
-	Electrons = {2,8,8},
+	ProtonNumber = "18",
+	Density = "1.4",
+	Mass = "39.948",
+	Classification = "Noble Gas",
+	Group = "18",
+	Block = "p",
+	
 }
 
---------------------------------------------------FOURTH PERIOD--------------------------------------------------
-
 Elements[19] = {
-	Position = {1,4},
 	Symbol = "K",
 	Name = "Potassium",
-	Classification = "Alkali metal",
-	Electrons = {2,8,8,1},
+	ProtonNumber = "19",
+	Density = "0.862",
+	Mass = "39.0983",
+	Classification = "Transition Metal",
+	Group = "1",
+	Block = "s",
+	
 }
 
 Elements[20] = {
-	Position = {2,4},
 	Symbol = "Ca",
 	Name = "Calcium",
-	Classification = "Alkaline earth metal",
-		Electrons = {2,8,8,2},
+	ProtonNumber = "20",
+	Density = "1.55",
+	Mass = "40.078",
+	Classification = "Alkalli Earth Metal",
+	Group = "2",
+	Block = "s",
+	
 }
 
 Elements[21] = {
-	Position = {3,4},
 	Symbol = "Sc",
 	Name = "Scandium",
-	Classification = "Transition metal",
-	Electrons = {2,8,9,2},
+	ProtonNumber = "21",
+	Density = "2.989",
+	Mass = "44.95591",
+	Classification = "Transition Metal",
+	Group = "3",
+	Block = "d",
+	
 }
 
 Elements[22] = {
-	Position = {4,4},
 	Symbol = "Ti",
 	Name = "Titanium",
-	Classification = "Transition metal",
-	Electrons = {2,8,10,2},
+	ProtonNumber = "22",
+	Density = "4.54",
+	Mass = "47.867",
+	Classification = "Transition Metal",
+	Group = "4",
+	Block = "d",
+	
 }
 
 Elements[23] = {
-	Position = {5,4},
 	Symbol = "V",
 	Name = "Vanadium",
-	Classification = "Transition metal",
-	Electrons = {2,8,11,2},
+	ProtonNumber = "23",
+	Density = "6.11",
+	Mass = "50.9415",
+	Classification = "Transition Metal",
+	Group = "5",
+	Block = "d",
+	
 }
 
 Elements[24] = {
-	Position = {6,4},
 	Symbol = "Cr",
 	Name = "Chromium",
-	Classification = "Transition metal",
-	Electrons = {2,8,13,1},
+	ProtonNumber = "24",
+	Density = "7.19",
+	Mass = "51.9961",
+	Classification = "Transition Metal",
+	Group = "6",
+	Block = "d",
+	
 }
 
 Elements[25] = {
-	Position = {7,4},
 	Symbol = "Mn",
 	Name = "Manganese",
-	Classification = "Transition metal",
-	Electrons = {2,8,13,2},
+	ProtonNumber = "25",
+	Density = "7.33",
+	Mass = "54.938049",
+	Classification = "Transition Metal",
+	Group = "7",
+	Block = "d",
+	
 }
 
 Elements[26] = {
-	Position = {8,4},
 	Symbol = "Fe",
 	Name = "Iron",
-	Classification = "Transition metal",
-	Electrons = {2,8,14,2},
+	ProtonNumber = "26",
+	Density = "7.874",
+	Mass = "55.845",
+	Classification = "Transition Metal",
+	Group = "8",
+	Block = "d",
+	
 }
 
 Elements[27] = {
-	Position = {9,4},
 	Symbol = "Co",
 	Name = "Cobalt",
-	Classification = "Transition metal",
-	Electrons = {2,8,15,2},
+	ProtonNumber = "27",
+	Density = "8.9",
+	Mass = "58.9332",
+	Classification = "Transition Metal",
+	Group = "9",
+	Block = "d",
+	
 }
 
 Elements[28] = {
-	Position = {10,4},
 	Symbol = "Ni",
 	Name = "Nickel",
-	Classification = "Transition metal",
-	Electrons = {2,8,16,2},
+	ProtonNumber = "28",
+	Density = "8.902",
+	Mass = "58.6934",
+	Classification = "Transition Metal",
+	Group = "10",
+	Block = "d",
+	
 }
 
 Elements[29] = {
-	Position = {11,4},
 	Symbol = "Cu",
 	Name = "Copper",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,1},
+	ProtonNumber = "29",
+	Density = "8.96",
+	Mass = "63.546",
+	Classification = "Transition Metal",
+	Group = "11",
+	Block = "d",
+	
 }
 
 Elements[30] = {
-	Position = {12,4},
 	Symbol = "Zn",
 	Name = "Zinc",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,2},
+	ProtonNumber = "30",
+	Density = "7.133",
+	Mass = "65.409",
+	Classification = "Transition Metal",
+	Group = "12",
+	Block = "d",
+	
 }
 
 Elements[31] = {
-	Position = {13,4},
 	Symbol = "Ga",
 	Name = "Gallium",
+	ProtonNumber = "31",
+	Density = "5.904",
+	Mass = "69.723",
 	Classification = "Metal",
-	Electrons = {2,8,18,3},
+	Group = "13",
+	Block = "p",
+	
 }
 
 Elements[32] = {
-	Position = {14,4},
 	Symbol = "Ge",
 	Name = "Germanium",
+	ProtonNumber = "32",
+	Density = "5.323",
+	Mass = "72.64",
 	Classification = "Metalloid",
-	Electrons = {2,8,18,4},
+	Group = "14",
+	Block = "p",
+	
 }
 
 Elements[33] = {
-	Position = {15,4},
 	Symbol = "As",
 	Name = "Arsenic",
+	ProtonNumber = "33",
+	Density = "5.73",
+	Mass = "74.9216",
 	Classification = "Metalloid",
-	Electrons = {2,8,18,5},
+	Group = "15",
+	Block = "p",
+	
 }
 
 Elements[34] = {
-	Position = {16,4},
 	Symbol = "Se",
 	Name = "Selenium",
+	ProtonNumber = "34",
+	Density = "4.79",
+	Mass = "78.96",
 	Classification = "Nonmetal",
-	Electrons = {2,8,18,6},
+	Group = "16",
+	Block = "p",
+	
 }
 
 Elements[35] = {
-	Position = {17,4},
 	Symbol = "Br",
 	Name = "Bromine",
-	Classification = "Nonmetal",
-	Electrons = {2,8,18,7},
+	ProtonNumber = "35",
+	Density = "3.12",
+	Mass = "79.904",
+	Classification = "Transition Metal",
+	Group = "17",
+	Block = "p",
+	
 }
 
 Elements[36] = {
-	Position = {18,4},
 	Symbol = "Kr",
 	Name = "Krypton",
-	Classification = "Noble gas",
-	Electrons = {2,8,18,8},
+	ProtonNumber = "36",
+	Density = "2.16",
+	Mass = "83.798",
+	Classification = "Noble Gas",
+	Group = "18",
+	Block = "p",
+	
 }
 
---------------------------------------------------FIFTH PERIOD--------------------------------------------------
-
 Elements[37] = {
-	Position = {1,5},
 	Symbol = "Rb",
 	Name = "Rubidium",
-	Classification = "Alkali metal",
-	Electrons = {2,8,18,8,1},
+	ProtonNumber = "37",
+	Density = "1.532",
+	Mass = "85.4678",
+	Classification = "Transition Metal",
+	Group = "1",
+	Block = "s",
+	
 }
 
 Elements[38] = {
-	Position = {2,5},
 	Symbol = "Sr",
 	Name = "Strontium",
-	Classification = "Alkaline earth metal",
-	Electrons = {2,8,18,8,2},
+	ProtonNumber = "38",
+	Density = "2.54",
+	Mass = "87.62",
+	Classification = "Alkalli Earth Metal",
+	Group = "2",
+	Block = "s",
+	
 }
 
 Elements[39] = {
-	Position = {3,5},
 	Symbol = "Y",
 	Name = "Yttrium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,9,2},	
+	ProtonNumber = "39",
+	Density = "4.469",
+	Mass = "88.90585",
+	Classification = "Transition Metal",
+	Group = "3",
+	Block = "d",
+	
 }
 
 Elements[40] = {
-	Position = {4,5},
-	Symbol = "Zr",	
+	Symbol = "Zr",
 	Name = "Zirconium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,10,2},
+	ProtonNumber = "40",
+	Density = "6.506",
+	Mass = "91.224",
+	Classification = "Transition Metal",
+	Group = "4",
+	Block = "d",
+	
 }
 
 Elements[41] = {
-	Position = {5,5},
 	Symbol = "Nb",
 	Name = "Niobium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,12,1},
+	ProtonNumber = "41",
+	Density = "8.57",
+	Mass = "92.90638",
+	Classification = "Transition Metal",
+	Group = "5",
+	Block = "d",
+	
 }
 
 Elements[42] = {
-	Position = {6,5},
 	Symbol = "Mo",
 	Name = "Molybdenum",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,13,1},
+	ProtonNumber = "42",
+	Density = "10.22",
+	Mass = "95.94",
+	Classification = "Transition Metal",
+	Group = "6",
+	Block = "d",
+	
 }
 
 Elements[43] = {
-	Position = {7,5},
-	Symbol = "Te",
+	Symbol = "Tc",
 	Name = "Technetium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,13,2},
+	ProtonNumber = "43",
+	Density = "11.5",
+	Mass = "98",
+	Classification = "Transition Metal",
+	Group = "7",
+	Block = "d",
+	
 }
 
 Elements[44] = {
-	Position = {8,5},
 	Symbol = "Ru",
 	Name = "Ruthenium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,15,1},
+	ProtonNumber = "44",
+	Density = "12.41",
+	Mass = "101.07",
+	Classification = "Transition Metal",
+	Group = "8",
+	Block = "d",
+	
 }
 
 Elements[45] = {
-	Position = {9,5},
 	Symbol = "Rh",
 	Name = "Rhodium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,16,1},
+	ProtonNumber = "45",
+	Density = "12.41",
+	Mass = "102.9055",
+	Classification = "Transition Metal",
+	Group = "9",
+	Block = "d",
+	
 }
 
 Elements[46] = {
-	Position = {10,5},
 	Symbol = "Pd",
 	Name = "Palladium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,18},
+	ProtonNumber = "46",
+	Density = "12.02",
+	Mass = "106.42",
+	Classification = "Transition Metal",
+	Group = "10",
+	Block = "d",
+	
 }
 
 Elements[47] = {
-	Position = {11,5},
 	Symbol = "Ag",
 	Name = "Silver",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,18,1},
+	ProtonNumber = "47",
+	Density = "10.5",
+	Mass = "107.8682",
+	Classification = "Transition Metal",
+	Group = "11",
+	Block = "d",
+	
 }
 
 Elements[48] = {
-	Position = {12,5},
 	Symbol = "Cd",
 	Name = "Cadmium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,18,2},
+	ProtonNumber = "48",
+	Density = "8.65",
+	Mass = "112.411",
+	Classification = "Transition Metal",
+	Group = "12",
+	Block = "d",
+	
 }
 
 Elements[49] = {
-	Position = {13,5},
 	Symbol = "In",
 	Name = "Indium",
+	ProtonNumber = "49",
+	Density = "7.31",
+	Mass = "114.818",
 	Classification = "Metal",
-	Electrons = {2,8,18,18,3},
+	Group = "13",
+	Block = "p",
+	
 }
 
 Elements[50] = {
-	Position = {14,5},
 	Symbol = "Sn",
 	Name = "Tin",
+	ProtonNumber = "50",
+	Density = "7.31",
+	Mass = "118.71",
 	Classification = "Metal",
-	Electrons = {2,8,18,18,4},
+	Group = "14",
+	Block = "p",
 	
 }
 
 Elements[51] = {
-	Position = {15,5},
 	Symbol = "Sb",
 	Name = "Antimony",
+	ProtonNumber = "51",
+	Density = "6.691",
+	Mass = "121.76",
 	Classification = "Metalloid",
-	Electrons = {2,8,18,18,5},
+	Group = "15",
+	Block = "p",
+	
 }
 
 Elements[52] = {
-	Position = {16,5},
 	Symbol = "Te",
-	Name = "Tellerium",
+	Name = "Tellurium",
+	ProtonNumber = "52",
+	Density = "6.24",
+	Mass = "127.6",
 	Classification = "Metalloid",
-	Electrons = {2,8,18,18,6},
+	Group = "16",
+	Block = "p",
+	
 }
 
 Elements[53] = {
-	Position = {17,5},
 	Symbol = "I",
 	Name = "Iodine",
-	Classification = "Nonmetal",
-	Electrons = {2,8,18,18,7},
+	ProtonNumber = "53",
+	Density = "4.93",
+	Mass = "126.90447",
+	Classification = "Transition Metal",
+	Group = "17",
+	Block = "p",
+	
 }
 
 Elements[54] = {
-	Position = {18,5},
 	Symbol = "Xe",
 	Name = "Xenon",
-	Classification = "Noble gas",
-	Electrons = {2,8,18,18,8},
+	ProtonNumber = "54",
+	Density = "3.52",
+	Mass = "131.293",
+	Classification = "Noble Gas",
+	Group = "18",
+	Block = "p",
+	
 }
 
---------------------------------------------------SIXTH PERIOD--------------------------------------------------
-
 Elements[55] = {
-	Position = {1,6},
 	Symbol = "Cs",
-	Name = "Caesium",
-	Classification = "Alkali metal",
-	Electrons = {2,8,18,18,8,1},
+	Name = "Cesium",
+	ProtonNumber = "55",
+	Density = "1.873",
+	Mass = "132.90545",
+	Classification = "Alkalli Metal",
+	Group = "1",
+	Block = "s",
+	
 }
 
 Elements[56] = {
-	Position = {2,6},
 	Symbol = "Ba",
 	Name = "Barium",
-	Classification = "Alkaline earth metal",
-	Electrons = {2,8,18,18,8,2},
+	ProtonNumber = "56",
+	Density = "3.5",
+	Mass = "137.327",
+	Classification = "Alkalli Earth Metal",
+	Group = "2",
+	Block = "s",
+	
 }
 
 Elements[57] = {
-	Position = {3,6},
 	Symbol = "La",
 	Name = "Lanthanum",
+	ProtonNumber = "57",
+	Density = "6.145",
+	Mass = "138.9055",
 	Classification = "Lanthanoid",
-	Electrons = {2,8,18,18,9,2},
+	Group = "3",
+	Block = "d",
+	
 }
 
 Elements[58] = {
-	Position = {1,9},
 	Symbol = "Ce",
 	Name = "Cerium",
+	ProtonNumber = "58",
+	Density = "6.77",
+	Mass = "140.116",
 	Classification = "Lanthanoid",
-	Electrons = {2,8,18,19,9,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[59] = {
-	Position = {2,9},
 	Symbol = "Pr",
 	Name = "Praseodymium",
+	ProtonNumber = "59",
+	Density = "6.773",
+	Mass = "140.90765",
 	Classification = "Lanthanoid",
-	Electrons = {2,8,18,21,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[60] = {
-	Position = {3,9},
 	Symbol = "Nd",
 	Name = "Neodymium",
+	ProtonNumber = "60",
+	Density = "7.008",
+	Mass = "144.24",
 	Classification = "Lanthanoid",
-	Electrons = {2,8,18,22,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[61] = {
-	Position = {4,9},
 	Symbol = "Pm",
 	Name = "Promethium",
+	ProtonNumber = "61",
+	Density = "7.264",
+	Mass = "145",
 	Classification = "Lanthanoid",
-	Electrons = {2,8,18,23,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[62] = {
-	Position = {5,9},
 	Symbol = "Sm",
 	Name = "Samarium",
+	ProtonNumber = "62",
+	Density = "7.52",
+	Mass = "150.36",
 	Classification = "Lanthanoid",
-	Electrons = {2,8,18,24,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[63] = {
-	Position = {6,9},
 	Symbol = "Eu",
 	Name = "Europium",
+	ProtonNumber = "63",
+	Density = "5.244",
+	Mass = "151.964",
 	Classification = "Lanthanoid",
-	Electrons = {2,8,18,25,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[64] = {
-	Position = {7,9},
 	Symbol = "Gd",
 	Name = "Gadolinium",
+	ProtonNumber = "64",
+	Density = "7.901",
+	Mass = "157.25",
 	Classification = "Lanthanoid",
-	Electrons = {2,8,18,25,9,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[65] = {
-	Position = {8,9},
 	Symbol = "Tb",
 	Name = "Terbium",
+	ProtonNumber = "65",
+	Density = "8.23",
+	Mass = "158.92534",
 	Classification = "Lanthanoid",
-	Electrons = {2,8,18,27,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[66] = {
-	Position = {9,9},
 	Symbol = "Dy",
 	Name = "Dysprosium",
+	ProtonNumber = "66",
+	Density = "8.551",
+	Mass = "162.5",
 	Classification = "Lanthanoid",
-	Electrons = {2,8,18,28,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[67] = {
-	Position = {10,9},
 	Symbol = "Ho",
 	Name = "Holmium",
+	ProtonNumber = "67",
+	Density = "8.795",
+	Mass = "164.93032",
 	Classification = "Lanthanoid",
-	Electrons = {2,8,18,29,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[68] = {
-	Position = {11,9},
 	Symbol = "Er",
 	Name = "Erbium",
+	ProtonNumber = "68",
+	Density = "9.066",
+	Mass = "167.259",
 	Classification = "Lanthanoid",
-	Electrons = {2,8,18,30,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[69] = {
-	Position = {12,9},
 	Symbol = "Tm",
 	Name = "Thulium",
+	ProtonNumber = "69",
+	Density = "9.321",
+	Mass = "168.93421",
 	Classification = "Lanthanoid",
-	Electrons = {2,8,18,31,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[70] = {
-	Position = {13,9},
 	Symbol = "Yb",
 	Name = "Ytterbium",
+	ProtonNumber = "70",
+	Density = "6.966",
+	Mass = "173.04",
 	Classification = "Lanthanoid",
-	Electrons = {2,8,18,32,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[71] = {
-	Position = {14,9},
 	Symbol = "Lu",
 	Name = "Lutetium",
+	ProtonNumber = "71",
+	Density = "9.841",
+	Mass = "174.967",
 	Classification = "Lanthanoid",
-	Electrons = {2,8,18,32,9,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[72] = {
-	Position = {4,6},
 	Symbol = "Hf",
 	Name = "Hafnium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,32,10,2},
+	ProtonNumber = "72",
+	Density = "13.31",
+	Mass = "178.49",
+	Classification = "Transition Metal",
+	Group = "4",
+	Block = "d",
+	
 }
 
 Elements[73] = {
-	Position = {5,6},
 	Symbol = "Ta",
 	Name = "Tantalum",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,32,11,2},
+	ProtonNumber = "73",
+	Density = "16.654",
+	Mass = "180.9479",
+	Classification = "Transition Metal",
+	Group = "5",
+	Block = "d",
+	
 }
 
 Elements[74] = {
-	Position = {6,6},
 	Symbol = "W",
 	Name = "Tungsten",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,32,12,2},
+	ProtonNumber = "74",
+	Density = "19.3",
+	Mass = "183.84",
+	Classification = "Transition Metal",
+	Group = "6",
+	Block = "d",
+	
 }
 
 Elements[75] = {
-	Position = {7,6},
 	Symbol = "Re",
 	Name = "Rhenium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,32,13,2},
+	ProtonNumber = "75",
+	Density = "21.02",
+	Mass = "186.207",
+	Classification = "Transition Metal",
+	Group = "7",
+	Block = "d",
+	
 }
 
 Elements[76] = {
-	Position = {8,6},
 	Symbol = "Os",
 	Name = "Osmium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,32,14,2},
+	ProtonNumber = "76",
+	Density = "22.57",
+	Mass = "190.23",
+	Classification = "Transition Metal",
+	Group = "8",
+	Block = "d",
+	
 }
 
 Elements[77] = {
-	Position = {9,6},
 	Symbol = "Ir",
 	Name = "Iridium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,32,15,2},
+	ProtonNumber = "77",
+	Density = "22.42",
+	Mass = "192.217",
+	Classification = "Transition Metal",
+	Group = "9",
+	Block = "d",
+	
 }
 
 Elements[78] = {
-	Position = {10,6},
 	Symbol = "Pt",
 	Name = "Platinum",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,32,17,1},
+	ProtonNumber = "78",
+	Density = "21.45",
+	Mass = "195.078",
+	Classification = "Transition Metal",
+	Group = "10",
+	Block = "d",
+	
 }
 
 Elements[79] = {
-	Position = {11,6},
 	Symbol = "Au",
 	Name = "Gold",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,32,18,1},
+	ProtonNumber = "79",
+	Density = "19.3",
+	Mass = "196.96655",
+	Classification = "Transition Metal",
+	Group = "11",
+	Block = "d",
+	
 }
 
 Elements[80] = {
-	Position = {12,6},
 	Symbol = "Hg",
 	Name = "Mercury",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,32,18,2},
+	ProtonNumber = "80",
+	Density = "13.546",
+	Mass = "200.59",
+	Classification = "Transition Metal",
+	Group = "12",
+	Block = "d",
+	
 }
 
 Elements[81] = {
-	Position = {13,6},
 	Symbol = "Tl",
 	Name = "Thallium",
+	ProtonNumber = "81",
+	Density = "11.85",
+	Mass = "204.3833",
 	Classification = "Metal",
-	Electrons = {2,8,18,32,18,3},
+	Group = "13",
+	Block = "p",
+	
 }
 
 Elements[82] = {
-	Position = {14,6},
 	Symbol = "Pb",
 	Name = "Lead",
+	ProtonNumber = "82",
+	Density = "11.35",
+	Mass = "207.2",
 	Classification = "Metal",
-	Electrons = {2,8,18,32,18,4},
+	Group = "14",
+	Block = "p",
+	
 }
 
 Elements[83] = {
-	Position = {15,6},
 	Symbol = "Bi",
 	Name = "Bismuth",
+	ProtonNumber = "83",
+	Density = "9.747",
+	Mass = "208.98038",
 	Classification = "Metal",
-	Electrons = {2,8,18,32,18,5},
+	Group = "15",
+	Block = "p",
+	
 }
 
 Elements[84] = {
-	Position = {16,6},
 	Symbol = "Po",
 	Name = "Polonium",
-	Classification = "Metal",
-	Electrons = {2,8,18,32,18,6},
+	ProtonNumber = "84",
+	Density = "9.32",
+	Mass = "209",
+	Classification = "Metalloid",
+	Group = "16",
+	Block = "p",
+	
 }
 
 Elements[85] = {
-	Position = {17,6},
 	Symbol = "At",
 	Name = "Astatine",
-	Classification = "Metalloid",
-	Electrons = {2,8,18,32,18,7},
+	ProtonNumber = "85",
+	Density = "None",
+	Mass = "210",
+	Classification = "Transition Metal",
+	Group = "17",
+	Block = "p",
+	
 }
 
 Elements[86] = {
-	Position = {18,6},
 	Symbol = "Rn",
 	Name = "Radon",
-	Classification = "Noble gas",
-	Electrons = {2,8,18,32,18,8},
+	ProtonNumber = "86",
+	Density = "None",
+	Mass = "222",
+	Classification = "Noble Gas",
+	Group = "18",
+	Block = "p",
+	
 }
 
---------------------------------------------------SEVENT PERIOD--------------------------------------------------
-
 Elements[87] = {
-	Position = {1,7},
 	Symbol = "Fr",
 	Name = "Francium",
-	Classification = "Alkali metal",
-	Electrons = {2,8,18,32,18,8,1},
+	ProtonNumber = "87",
+	Density = "None",
+	Mass = "223",
+	Classification = "Alkalli Metal",
+	Group = "1",
+	Block = "s",
+	
 }
 
 Elements[88] = {
-	Position = {2,7},
 	Symbol = "Ra",
 	Name = "Radium",
-	Classification = "Alkaline earth metal",
-	Electrons = {2,8,18,32,18,8,2},
+	ProtonNumber = "88",
+	Density = "None",
+	Mass = "226",
+	Classification = "Alkalli Earth Metal",
+	Group = "2",
+	Block = "s",
+	
 }
 
 Elements[89] = {
-	Position = {3,7},
 	Symbol = "Ac",
 	Name = "Actinium",
+	ProtonNumber = "89",
+	Density = "None",
+	Mass = "227",
 	Classification = "Actinoid",
-	Electrons = {2,8,18,32,18,9,2},
+	Group = "3",
+	Block = "d",
+	
 }
 
 Elements[90] = {
-	Position = {1,10},
 	Symbol = "Th",
 	Name = "Thorium",
+	ProtonNumber = "90",
+	Density = "11.72",
+	Mass = "232.0381",
 	Classification = "Actinoid",
-	Electrons = {2,8,18,32,18,10,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[91] = {
-	Position = {2,10},
 	Symbol = "Pa",
 	Name = "Protactinium",
+	ProtonNumber = "91",
+	Density = "15.37",
+	Mass = "231.03588",
 	Classification = "Actinoid",
-	Electrons = {2,8,18,32,20,9,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[92] = {
-	Position = {3,10},
 	Symbol = "U",
 	Name = "Uranium",
+	ProtonNumber = "92",
+	Density = "18.95",
+	Mass = "238.02891",
 	Classification = "Actinoid",
-	Electrons = {2,8,18,32,21,9,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[93] = {
-	Position = {4,10},
 	Symbol = "Np",
 	Name = "Neptunium",
+	ProtonNumber = "93",
+	Density = "20.25",
+	Mass = "237",
 	Classification = "Actinoid",
-	Electrons = {2,8,18,32,22,9,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[94] = {
-	Position = {5,10},
 	Symbol = "Pu",
 	Name = "Plutonium",
+	ProtonNumber = "94",
+	Density = "19.84",
+	Mass = "244",
 	Classification = "Actinoid",
-	Electrons = {2,8,18,32,24,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[95] = {
-	Position = {6,10},
 	Symbol = "Am",
 	Name = "Americium",
+	ProtonNumber = "95",
+	Density = "13.67",
+	Mass = "243",
 	Classification = "Actinoid",
-	Electrons = {2,8,18,32,25,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[96] = {
-	Position = {7,10},
 	Symbol = "Cm",
 	Name = "Curium",
+	ProtonNumber = "96",
+	Density = "13.51",
+	Mass = "247",
 	Classification = "Actinoid",
-	Electrons = {2,8,18,32,25,9,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[97] = {
-	Position = {8,10},
 	Symbol = "Bk",
 	Name = "Berkelium",
+	ProtonNumber = "97",
+	Density = "14",
+	Mass = "247",
 	Classification = "Actinoid",
-	Electrons = {2,8,18,32,27,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[98] = {
-	Position = {9,10},
 	Symbol = "Cf",
 	Name = "Californium",
+	ProtonNumber = "98",
+	Density = "None",
+	Mass = "251",
 	Classification = "Actinoid",
-	Electrons = {2,8,18,32,28,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[99] = {
-	Position = {10,10},
 	Symbol = "Es",
 	Name = "Einsteinium",
+	ProtonNumber = "99",
+	Density = "None",
+	Mass = "252",
 	Classification = "Actinoid",
-	Electrons = {2,8,18,32,29,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[100] = {
-	Position = {11,10},
 	Symbol = "Fm",
 	Name = "Fermium",
+	ProtonNumber = "100",
+	Density = "None",
+	Mass = "257",
 	Classification = "Actinoid",
-	Electrons = {2,8,18,32,30,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[101] = {
-	Position = {12,10},
 	Symbol = "Md",
 	Name = "Mendelevium",
+	ProtonNumber = "101",
+	Density = "None",
+	Mass = "258",
 	Classification = "Actinoid",
-	Electrons = {2,8,18,32,31,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
 
 Elements[102] = {
-	Position = {13,10},
 	Symbol = "No",
 	Name = "Nobelium",
+	ProtonNumber = "102",
+	Density = "None",
+	Mass = "259",
 	Classification = "Actinoid",
-	Electrons = {2,8,18,32,32,8,2},
+	Group = "None",
+	Block = "f",
+	
 }
-
 
 Elements[103] = {
-	Position = {14,10},
 	Symbol = "Lr",
 	Name = "Lawrencium",
+	ProtonNumber = "103",
+	Density = "None",
+	Mass = "262",
 	Classification = "Actinoid",
-	Electrons = {2,8,18,32,32,8,3},
+	Group = "None",
+	Block = "f",
+	
 }
 
-
 Elements[104] = {
-	Position = {4,7},
 	Symbol = "Rf",
 	Name = "Rutherfordium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,32,32,10,2},
+	ProtonNumber = "104",
+	Density = "None",
+	Mass = "261",
+	Classification = "Transition Metal",
+	Group = "4",
+	Block = "d",
+	
 }
 
 Elements[105] = {
-	Position = {5,7},
 	Symbol = "Db",
 	Name = "Dubnium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,32,32,11,2},
+	ProtonNumber = "105",
+	Density = "None",
+	Mass = "262",
+	Classification = "Transition Metal",
+	Group = "5",
+	Block = "d",
+	
 }
 
 Elements[106] = {
-	Position = {6,7},
 	Symbol = "Sg",
 	Name = "Seaborgium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,32,32,12,2},
+	ProtonNumber = "106",
+	Density = "None",
+	Mass = "266",
+	Classification = "Transition Metal",
+	Group = "6",
+	Block = "d",
+	
 }
 
 Elements[107] = {
-	Position = {7,7},
 	Symbol = "Bh",
 	Name = "Bohrium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,32,32,13,2},
+	ProtonNumber = "107",
+	Density = "None",
+	Mass = "264",
+	Classification = "Transition Metal",
+	Group = "7",
+	Block = "d",
+	
 }
 
 Elements[108] = {
-	Position = {8,7},
 	Symbol = "Hs",
 	Name = "Hassium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,32,32,14,2},
+	ProtonNumber = "108",
+	Density = "None",
+	Mass = "277",
+	Classification = "Transition Metal",
+	Group = "8",
+	Block = "d",
+	
 }
 
 Elements[109] = {
-	Position = {9,7},
 	Symbol = "Mt",
 	Name = "Meitnerium",
-	Classification = "Unknown",
-	Electrons = {2,8,18,32,32,15,2},
+	ProtonNumber = "109",
+	Density = "None",
+	Mass = "268",
+	Classification = "Transition Metal",
+	Group = "9",
+	Block = "d",
+	
 }
 
 Elements[110] = {
-	Position = {10,7},
 	Symbol = "Ds",
 	Name = "Darmstadtium",
-	Classification = "Unknown",
-	Electrons = {2,8,18,32,32,17,1},
+	ProtonNumber = "110",
+	Density = "None",
+	Mass = "281",
+	Classification = "Transition Metal",
+	Group = "10",
+	Block = "d",
+	
 }
 
 Elements[111] = {
-	Position = {11,7},
 	Symbol = "Rg",
 	Name = "Roentgenium",
-	Classification = "Unknown",
-	Electrons = {2,8,18,32,32,17,2},
+	ProtonNumber = "111",
+	Density = "None",
+	Mass = "272",
+	Classification = "Transition Metal",
+	Group = "11",
+	Block = "d",
+	
 }
 
 Elements[112] = {
-	Position = {12,7},
 	Symbol = "Cn",
 	Name = "Copernicium",
-	Classification = "Transition metal",
-	Electrons = {2,8,18,32,32,18,2},
+	ProtonNumber = "112",
+	Density = "None",
+	Mass = "285",
+	Classification = "Transition Metal",
+	Group = "12",
+	Block = "d",
+	
 }
 
 Elements[113] = {
-	Position = {13,7},
 	Symbol = "Nh",
 	Name = "Nihonium",
-	Classification = "Unknown",
-	Electrons = {2,8,18,32,32,18,3},
+	ProtonNumber = "113",
+	Density = "None",
+	Mass = "286",
+	Classification = "Unclassified",
+	Group = "13",
+	Block = "p",
+	
 }
 
 Elements[114] = {
-	Position = {14,7},
 	Symbol = "Fl",
 	Name = "Flerovium",
+	ProtonNumber = "114",
+	Density = "None",
+	Mass = "289",
 	Classification = "Metal",
-	Electrons = {2,8,18,32,32,18,4},
+	Group = "14",
+	Block = "p",
+	
 }
 
 Elements[115] = {
-	Position = {15,7},
 	Symbol = "Mc",
 	Name = "Moscovium",
-	Classification = "Unknown",
-	Electrons = {2,8,18,32,32,18,5},
+	ProtonNumber = "115",
+	Density = "None",
+	Mass = "289",
+	Classification = "Unclassified",
+	Group = "15",
+	Block = "p",
+	
 }
 
 Elements[116] = {
-	Position = {16,7},
 	Symbol = "Lv",
 	Name = "Livermorium",
-	Classification = "Unknown",
-	Electrons = {2,8,18,32,32,18,6},
+	ProtonNumber = "116",
+	Density = "None",
+	Mass = "293",
+	Classification = "Metal",
+	Group = "16",
+	Block = "p",
+	
 }
 
 Elements[117] = {
-	Position = {17,7},
 	Symbol = "Ts",
 	Name = "Tennessine",
-	Classification = "Unknown",
-	Electrons = {2,8,18,32,32,18,7},
+	ProtonNumber = "117",
+	Density = "None",
+	Mass = "294",
+	Classification = "Unclassified",
+	Group = "17",
+	Block = "p",
+	
 }
 
 Elements[118] = {
-	Position = {18,7},
 	Symbol = "Og",
 	Name = "Oganesson",
-	Classification = "Unknown",
-	Electrons = {2,8,18,32,32,18,8},
+	ProtonNumber = "118",
+	Density = "None",
+	Mass = "294",
+	Classification = "Unclassified",
+	Group = "18",
+	Block = "p",
+	
 }
+
 
 
 local function Reverse (t)
