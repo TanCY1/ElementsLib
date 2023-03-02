@@ -1,4 +1,3 @@
 local Element = require("Elements")
-print(Element.locate("Symbol","H","Group"))
-print(Element.table)
+print(Element.locate("Name","Iron","Block"))
 
