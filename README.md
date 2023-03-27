@@ -12,6 +12,7 @@ This is a lua module to use the Periodic Table
 ```lua
 --Example
 local Element = require("Elements")
+--prints the symbol for Silver
 print(Element.locate("Name","Silver","Symbol")
 -- returns Ag
 ```
