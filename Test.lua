@@ -1,3 +1,3 @@
-local Element = require("Elements")
-print(Element.locate("Name","Iron","Block"))
 
+Element=require("Elements/Elements")
+print(Element.locate("Name","Oganesson","melt"))
