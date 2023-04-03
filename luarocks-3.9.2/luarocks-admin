@@ -1,3 +1,0 @@
-#!/bin/sh
-unset LUA_PATH LUA_PATH_5_2 LUA_PATH_5_3 LUA_PATH_5_4 LUA_CPATH LUA_CPATH_5_2 LUA_CPATH_5_3 LUA_CPATH_5_4
-LUAROCKS_SYSCONFDIR="/usr/local/etc/luarocks" LUA_PATH="/workspaces/ElementsLib/luarocks-3.9.2/src/?.lua;;" exec "/usr/local/bin/lua" "/workspaces/ElementsLib/luarocks-3.9.2/src/bin/luarocks-admin" --project-tree="/workspaces/ElementsLib/luarocks-3.9.2/lua_modules" "$@"
