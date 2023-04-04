@@ -167,7 +167,7 @@ permanent authorization for you to choose that version for the
 Library.]]
 
 
-
+--Generated with Python Script
 local Elements = {}
 Elements[1]={
 	name="Hydrogen",
