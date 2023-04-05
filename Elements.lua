@@ -4521,26 +4521,30 @@ local function locate(I,W,O)
 	return Locatemain(Elements,I:lower(),W,O:lower())
 end
 
+---comment
+---@param table table
+local function singularmass(table)
+	return locate("Symbol",table[1],"atomic_mass")*table[2]
+end
+
+---comment
+---@param ... table
+---@return number
 local function mass(...)
 	local mass=0
-	for i,v in pairs({...}) do
-		print(locate("Symbol",v,"Mass"))
-		if locate("Symbol",v,"Mass")==nil then
-			return nil
-		end
-		mass=mass+locate("Symbol",v,"Mass")
+	local args={...}
+	for k,v in ipairs(args) do
+		mass=mass+singularmass(v)
 	end
 	return mass
 end
 	
 
 
-
 	
-
-		
 
 ---A lua module relating to the periodic table
 return {locate=locate,
-		table=Elements}
+		table=Elements,
+		mass=mass}
 	

@@ -1,3 +1,3 @@
 
 Element=require("Elements")
-print(Element.mass("H","H"))
+print(Element.mass({"H",2},{"O",1}))
