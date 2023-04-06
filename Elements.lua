@@ -4522,13 +4522,25 @@ local function locate(I,W,O)
 end
 
 ---comment
----@param table table
-local function singularmass(table)
-	return locate("Symbol",table[1],"atomic_mass")*table[2]
+---@param data any
+local function singularmass(data)
+	if type(data)=="table" then
+		if #data>2 then
+			error("argument should not have more than 2 fields")
+		end
+		if type(data[2])=="nil" then
+			return locate("Symbol",data[1],"atomic_mass")
+		else 
+			return locate("Symbol",data[1],"atomic_mass")*data[2]
+		end
+	elseif type(data)=="string" then
+		return locate("Symbol",data,"atomic_mass")
+	end
+
 end
 
 ---comment
----@param ... table
+---@param ... any
 ---@return number
 local function mass(...)
 	local mass=0
