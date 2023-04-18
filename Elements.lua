@@ -4467,7 +4467,7 @@ local function tchelper(first, rest)
     return first:upper()..rest:lower()
  end
 
-function dump(o)
+local function dump(o)
 	if type(o) == 'table' then
 	   local s = '{'
 	   for k,v in pairs(o) do
@@ -4498,7 +4498,7 @@ end
 ---@param search string
 ---@param element string
 ---@param r string
----@return string
+---@return any
 local function Locatemain (t,search,element,r)
     local index = Locateinit(t,search)[element]
     local TheElement = t[index]
