@@ -1,3 +1,3 @@
 
 Element=require("Elements")
-print(Element.mass({"H",2},{"O"}))
+print(Element.locate("Name","Silver","Symbol"))
