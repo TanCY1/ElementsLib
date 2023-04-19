@@ -1,3 +1,47 @@
+-- Bundled by luabundle {"version":"1.6.0"}
+local __bundle_require, __bundle_loaded, __bundle_register, __bundle_modules = (function(superRequire)
+	local loadingPlaceholder = {[{}] = true}
+
+	local register
+	local modules = {}
+
+	local require
+	local loaded = {}
+
+	register = function(name, body)
+		if not modules[name] then
+			modules[name] = body
+		end
+	end
+
+	require = function(name)
+		local loadedModule = loaded[name]
+
+		if loadedModule then
+			if loadedModule == loadingPlaceholder then
+				return nil
+			end
+		else
+			if not modules[name] then
+				if not superRequire then
+					local identifier = type(name) == 'string' and '\"' .. name .. '\"' or tostring(name)
+					error('Tried to require ' .. identifier .. ', but no such module has been registered')
+				else
+					return superRequire(name)
+				end
+			end
+
+			loaded[name] = loadingPlaceholder
+			loadedModule = modules[name](require, loaded, register, modules)
+			loaded[name] = loadedModule
+		end
+
+		return loadedModule
+	end
+
+	return require, loaded, register, modules
+end)(require)
+__bundle_register("__root", function(require, _LOADED, __bundle_register, __bundle_modules)
 --This module was created by Tan Choon Yong 2023
 
 --[[                   GNU LESSER GENERAL PUBLIC LICENSE
@@ -167,6 +211,118 @@ permanent authorization for you to choose that version for the
 Library.]]
 
 
+Elements=require("Data").Elements
+
+
+local function Reverse (t)
+    local r={}
+    for k,v in pairs(t) do
+        r[v]=k
+    end
+    return r
+end
+
+local function tchelper(first, rest)
+    return first:upper()..rest:lower()
+ end
+
+local function dump(o)
+	if type(o) == 'table' then
+	   local s = '{'
+	   for k,v in pairs(o) do
+		  if type(k) ~= 'number' then k = '"'..k..'"' end
+		  s = s .. k..'=' .. dump(v) .. ','
+	   end
+	   s=s:sub(1,-2).."}"
+	   return s
+	else
+	   return tostring(o)
+	end
+ end
+
+---@param t any
+---@param s any
+---@return table
+local function Locateinit (t,s)
+    local reversedElements={}
+    for k,v in pairs(t) do
+        if type(v[s]) ~= "nil" then
+            reversedElements[v[s]]=k
+        end
+    end
+    return reversedElements
+end
+
+---@param t table
+---@param search string
+---@param element string
+---@param r string
+---@return any
+local function Locatemain (t,search,element,r)
+    local index = Locateinit(t,search)[element]
+    local TheElement = t[index]
+    if type(TheElement) == "table" then
+        if type(TheElement[r])=="table" then
+			print("table")
+            return "{"..table.concat(TheElement[r],",").."}"
+        else
+            return TheElement[r]
+        end
+    else return nil 
+    end
+end
+
+--- Locates something of an element
+---@param I string
+---@param W string
+---@param O string
+---@return string
+local function locate(I,W,O)
+	return Locatemain(Elements,I:lower(),W,O:lower())
+end
+
+---comment
+---@param data any
+local function singularmass(data)
+	if type(data)=="table" then
+		if #data>2 then
+			error("argument should not have more than 2 fields")
+		end
+		if type(data[2])=="nil" then
+			return locate("Symbol",data[1],"atomic_mass")
+		else 
+			return locate("Symbol",data[1],"atomic_mass")*data[2]
+		end
+	elseif type(data)=="string" then
+		return locate("Symbol",data,"atomic_mass")
+	end
+
+end
+
+---comment
+---@param ... any
+---@return number
+local function mass(...)
+	local mass=0
+	local args={...}
+	for k,v in ipairs(args) do
+		mass=mass+singularmass(v)
+	end
+	return mass
+end
+	
+
+
+	
+
+---A lua module relating to the periodic table
+return {locate=locate,
+		table=Elements,
+		mass=mass}
+	
+
+end)
+__bundle_register("Data", function(require, _LOADED, __bundle_register, __bundle_modules)
 --Generated with Python Script
 local Elements = {}
 Elements[1]={
@@ -4454,110 +4610,6 @@ Elements[119]={
 	
 }
 
-
-local function Reverse (t)
-    local r={}
-    for k,v in pairs(t) do
-        r[v]=k
-    end
-    return r
-end
-
-local function tchelper(first, rest)
-    return first:upper()..rest:lower()
- end
-
-local function dump(o)
-	if type(o) == 'table' then
-	   local s = '{'
-	   for k,v in pairs(o) do
-		  if type(k) ~= 'number' then k = '"'..k..'"' end
-		  s = s .. k..'=' .. dump(v) .. ','
-	   end
-	   s=s:sub(1,-2).."}"
-	   return s
-	else
-	   return tostring(o)
-	end
- end
-
----@param t any
----@param s any
----@return table
-local function Locateinit (t,s)
-    local reversedElements={}
-    for k,v in pairs(t) do
-        if type(v[s]) ~= "nil" then
-            reversedElements[v[s]]=k
-        end
-    end
-    return reversedElements
-end
-
----@param t table
----@param search string
----@param element string
----@param r string
----@return any
-local function Locatemain (t,search,element,r)
-    local index = Locateinit(t,search)[element]
-    local TheElement = t[index]
-    if type(TheElement) == "table" then
-        if type(TheElement[r])=="table" then
-			print("table")
-            return "{"..table.concat(TheElement[r],",").."}"
-        else
-            return TheElement[r]
-        end
-    else return nil 
-    end
-end
-
---- Locates something of an element
----@param I string
----@param W string
----@param O string
----@return string
-local function locate(I,W,O)
-	return Locatemain(Elements,I:lower(),W,O:lower())
-end
-
----comment
----@param data any
-local function singularmass(data)
-	if type(data)=="table" then
-		if #data>2 then
-			error("argument should not have more than 2 fields")
-		end
-		if type(data[2])=="nil" then
-			return locate("Symbol",data[1],"atomic_mass")
-		else 
-			return locate("Symbol",data[1],"atomic_mass")*data[2]
-		end
-	elseif type(data)=="string" then
-		return locate("Symbol",data,"atomic_mass")
-	end
-
-end
-
----comment
----@param ... any
----@return number
-local function mass(...)
-	local mass=0
-	local args={...}
-	for k,v in ipairs(args) do
-		mass=mass+singularmass(v)
-	end
-	return mass
-end
-	
-
-
-	
-
----A lua module relating to the periodic table
-return {locate=locate,
-		table=Elements,
-		mass=mass}
-	
+return {Elements=Elements}
+end)
+return __bundle_require("__root")
