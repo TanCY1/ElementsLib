@@ -7,7 +7,7 @@ This is a lua module to use the Periodic Table
 
 |Method                |Description|
 | ------------------- |  ---------------------------------------------------- |
-|locate(I,W,O)| I: Type of element to be searched </br> W: Element to be searched </br> O: Return type|
+|locate(I,W,O)| I: Type of element to be searched </br> W: Element to be searched </br> O: Property to return|
 |table|List of all elements in the periodic table and their attributes|
 |mass(...)|Accepts any number of tables with the first value being Symbol of Element and the second being the number of particles|
 
