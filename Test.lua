@@ -1,3 +1,4 @@
+Elements=require("Elements")
 --Example
 local Element = require("Elements")
 --prints the symbol for Silver

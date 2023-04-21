@@ -209,6 +209,26 @@ local function Locateinit (t,s)
     return reversedElements
 end
 
+---comment
+---@param t table
+---@return table
+local function formatCompound(t)
+  local out={}
+  if type(t[2])~= "number" then
+    for k,v in pairs(t) do
+      if type(v)=="table" then
+        if v[2]~=nil then
+          table.insert(out,{v[1],v[2]})
+        else table.insert(out, {v[1],1})
+        end
+      elseif type(v)=="string" then
+        table.insert(out,{v,1})
+      end
+    end
+  else table.insert(out,{t[1],t[2]})
+  end
+  return out
+end
 ---@param t table
 ---@param search string
 ---@param element string
@@ -237,41 +257,45 @@ local function locate(I,W,O)
 	return Locatemain(Elements,I:lower(),W,O:lower())
 end
 
----comment
----@param data any
-local function singularmass(data)
-	if type(data)=="table" then
-		if #data>2 then
-			error("argument should not have more than 2 fields")
-		end
-		if type(data[2])=="nil" then
-			return locate("Symbol",data[1],"atomic_mass")
-		else 
-			return locate("Symbol",data[1],"atomic_mass")*data[2]
-		end
-	elseif type(data)=="string" then
-		return locate("Symbol",data,"atomic_mass")
-	end
 
-end
-
----comment
+---Calculates Mass
 ---@param ... any
 ---@return number
 local function mass(...)
 	local mass=0
-	local args={...}
-	for k,v in ipairs(args) do
-		mass=mass+singularmass(v)
-	end
+  local args={...}
+  if #args==1 and type(args[1])=="table" then
+    args=args[1]
+  end
+  local formatted=formatCompound(args)
+	for k,v in pairs(formatted) do
+    mass=mass+(locate("symbol",v[1],"atomic_mass")*v[2])
+  end
 	return mass
 end
-	
 
 
-	
 
----A lua module relating to the periodic table
+Compound={}
+---new Compound
+---@param t table
+---@return table
+function Compound:new(t)
+  local o={}
+  setmetatable(o,self)
+  self.__index=self
+  self.value=formatCompound(t)
+  self.mass=mass(self.value)
+  return o
+end
+
+
+test=Compound:new({"C",{"O",2}})
+print(dump(test.mass))
+
+
+
+--A lua module relating to the periodic table
 return {locate=locate,
 		table=Elements,
 		mass=mass}
