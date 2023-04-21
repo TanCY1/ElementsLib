@@ -1,3 +1,4 @@
+---@diagnostic disable: duplicate-set-field
 --This module was created by Tan Choon Yong 2023
 
 --[[                   GNU LESSER GENERAL PUBLIC LICENSE
@@ -274,6 +275,13 @@ local function mass(...)
 	return mass
 end
 
+local function compoundSearch(t)
+  local out={}
+  for k,v in pairs(t) do
+    out[v[1]]=v[2]
+  end
+  return out
+end
 
 
 Compound={}
@@ -289,14 +297,32 @@ function Compound:new(t)
   return o
 end
 
+function Compound:percentageByMass(Element)
+  local numberOfElements=compoundSearch(self.value)[Element]
+  local massOfElement=mass({Element,numberOfElements})
+  return massOfElement/self.mass
+end
 
-test=Compound:new({"C",{"O",2}})
-print(dump(test.mass))
+function Compound:getAmount(args)
+  local returntype=args["returnValue"]
+  local moles=nil
+  if args.grams~=nil then
+    moles=args.grams/self.mass
+  elseif args.moles~=nil then
+    moles=args.moles
+  end
+  if returntype=="moles" then
+    return moles
+  elseif returntype=="grams" then
+    return moles*self.mass
+  end
+end
 
 
 
 --A lua module relating to the periodic table
 return {locate=locate,
 		table=Elements,
-		mass=mass}
+		mass=mass,
+  Compound=Compound}
 	
