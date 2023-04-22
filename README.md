@@ -14,7 +14,7 @@ This is a lua module to use the Periodic Table
 |Compound.mass|Mass of Compound|
 |Compound:percentageByMass(Element)|Returns percentage by mass |
 |Compund:getAmount(args)|parameter return specifies property to return grams or moles and other parameter is given property|
-|mergeCompound(c1,c2)|Merges 2 Compounds into 1 Compound|
+|mergeCompound(...)|Merges any number of Compounds into 1 Compound|
 
 ## Example
 
