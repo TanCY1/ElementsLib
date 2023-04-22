@@ -166,87 +166,98 @@ whether future versions of the GNU Lesser General Public License shall
 apply, that proxy's public statement of acceptance of any version is
 permanent authorization for you to choose that version for the
 Library.]]
+Elements = require("Data").Elements
 
 
-Elements=require("Data").Elements
-
-
-local function Reverse (t)
-    local r={}
-    for k,v in pairs(t) do
-        r[v]=k
-    end
-    return r
+local function Reverse(t)
+  local r = {}
+  for k, v in pairs(t) do
+    r[v] = k
+  end
+  return r
 end
 
 local function tchelper(first, rest)
-    return first:upper()..rest:lower()
- end
+  return first:upper() .. rest:lower()
+end
 
 local function dump(o)
-	if type(o) == 'table' then
-	   local s = '{'
-	   for k,v in pairs(o) do
-		  if type(k) ~= 'number' then k = '"'..k..'"' end
-		  s = s .. k..'=' .. dump(v) .. ','
-	   end
-	   s=s:sub(1,-2).."}"
-	   return s
-	else
-	   return tostring(o)
-	end
- end
+  if type(o) == 'table' then
+    local s = '{'
+    for k, v in pairs(o) do
+      if type(k) ~= 'number' then k = '"' .. k .. '"' end
+      s = s .. k .. '=' .. dump(v) .. ','
+    end
+    s = s:sub(1, -2) .. "}"
+    return s
+  else
+    return tostring(o)
+  end
+end
+
+local function reverseTable(t)
+  local out = {}
+  for k, v in pairs(t) do
+    out[v] = k
+  end
+  return out
+end
 
 ---@param t any
 ---@param s any
 ---@return table
-local function Locateinit (t,s)
-    local reversedElements={}
-    for k,v in pairs(t) do
-        if type(v[s]) ~= "nil" then
-            reversedElements[v[s]]=k
-        end
+local function Locateinit(t, s)
+  local reversedElements = {}
+  for k, v in pairs(t) do
+    if type(v[s]) ~= "nil" then
+      reversedElements[v[s]] = k
     end
-    return reversedElements
+  end
+  return reversedElements
 end
 
 ---comment
 ---@param t table
 ---@return table
 local function formatCompound(t)
-  local out={}
-  if type(t[2])~= "number" then
-    for k,v in pairs(t) do
-      if type(v)=="table" then
-        if v[2]~=nil then
-          table.insert(out,{v[1],v[2]})
-        else table.insert(out, {v[1],1})
+  local out = {}
+  if type(t[2]) ~= "number" then
+    for k, v in pairs(t) do
+      if type(v) == "table" then
+        if v[2] ~= nil then
+          table.insert(out, { v[1], v[2] })
+        else
+          table.insert(out, { v[1], 1 })
         end
-      elseif type(v)=="string" then
-        table.insert(out,{v,1})
+      elseif type(v) == "string" then
+        table.insert(out, { v, 1 })
       end
     end
-  else table.insert(out,{t[1],t[2]})
+  else
+    table.insert(out, { t[1], t[2] })
   end
   return out
 end
+
+
 ---@param t table
 ---@param search string
 ---@param element string
 ---@param r string
 ---@return any
-local function Locatemain (t,search,element,r)
-    local index = Locateinit(t,search)[element]
-    local TheElement = t[index]
-    if type(TheElement) == "table" then
-        if type(TheElement[r])=="table" then
-			print("table")
-            return "{"..table.concat(TheElement[r],",").."}"
-        else
-            return TheElement[r]
-        end
-    else return nil 
+local function Locatemain(t, search, element, r)
+  local index = Locateinit(t, search)[element]
+  local TheElement = t[index]
+  if type(TheElement) == "table" then
+    if type(TheElement[r]) == "table" then
+      print("table")
+      return "{" .. table.concat(TheElement[r], ",") .. "}"
+    else
+      return TheElement[r]
     end
+  else
+    return nil
+  end
 end
 
 --- Locates something of an element
@@ -254,8 +265,8 @@ end
 ---@param W string
 ---@param O string
 ---@return string
-local function locate(I,W,O)
-	return Locatemain(Elements,I:lower(),W,O:lower())
+local function locate(I, W, O)
+  return Locatemain(Elements, I:lower(), W, O:lower())
 end
 
 
@@ -263,66 +274,99 @@ end
 ---@param ... any
 ---@return number
 local function mass(...)
-	local mass=0
-  local args={...}
-  if #args==1 and type(args[1])=="table" then
-    args=args[1]
+  local mass = 0
+  local args = { ... }
+  if #args == 1 and type(args[1]) == "table" then
+    args = args[1]
   end
-  local formatted=formatCompound(args)
-	for k,v in pairs(formatted) do
-    mass=mass+(locate("symbol",v[1],"atomic_mass")*v[2])
+  local formatted = formatCompound(args)
+  for k, v in pairs(formatted) do
+    mass = mass + (locate("symbol", v[1], "atomic_mass") * v[2])
   end
-	return mass
+  return mass
 end
 
 local function compoundSearch(t)
-  local out={}
-  for k,v in pairs(t) do
-    out[v[1]]=v[2]
+  local out = {}
+  for k, v in pairs(t) do
+    out[v[1]] = v[2]
   end
   return out
 end
 
+local function reverseCompoundSearch(t)
+    local out= {}
+    for k,v in pairs(t) do
+      table.insert(out,{k,v})
+    end
+    return out
+end
 
-Compound={}
+Compound = {}
 ---new Compound
 ---@param t table
 ---@return table
 function Compound:new(t)
-  local o={}
-  setmetatable(o,self)
-  self.__index=self
-  self.value=formatCompound(t)
-  self.mass=mass(self.value)
+  local o = {}
+  self.__index = self
+  o.value = formatCompound(t)
+  o.mass = mass(o.value)
+  setmetatable(o, self)
   return o
 end
 
 function Compound:percentageByMass(Element)
-  local numberOfElements=compoundSearch(self.value)[Element]
-  local massOfElement=mass({Element,numberOfElements})
-  return massOfElement/self.mass
+  local numberOfElements = compoundSearch(self.value)[Element]
+  local massOfElement = mass({ Element, numberOfElements })
+  return massOfElement / self.mass
 end
 
 function Compound:getAmount(args)
-  local returntype=args["returnValue"]
-  local moles=nil
-  if args.grams~=nil then
-    moles=args.grams/self.mass
-  elseif args.moles~=nil then
-    moles=args.moles
+  local returntype = args["returnValue"]
+  local moles = nil
+  if args.grams ~= nil then
+    moles = args.grams / self.mass
+  elseif args.moles ~= nil then
+    moles = args.moles
   end
-  if returntype=="moles" then
+  if returntype == "moles" then
     return moles
-  elseif returntype=="grams" then
-    return moles*self.mass
+  elseif returntype == "grams" then
+    return moles * self.mass
   end
+end
+
+local function mergeCompound(c1, c2)
+  local out = {}
+  if (c1.value ~= nil) and (c2.value ~= nil) then
+    local c1 = compoundSearch(c1.value)
+    local c2 = compoundSearch(c2.value)
+    for k, v in pairs(c1) do
+      if out[k] ~= nil then
+        out[k] = out[k] + v
+      else
+        out[k] = v
+      end
+    end
+    for k, v in pairs(c2) do
+
+      if out[k] ~= nil then
+        out[k] = out[k] + v
+      else
+        out[k] = v
+      end
+    end
+  end
+  return Compound:new(reverseCompoundSearch(out))
 end
 
 
 
 --A lua module relating to the periodic table
-return {locate=locate,
-		table=Elements,
-		mass=mass,
-  Compound=Compound}
-	
+return {
+  locate = locate,
+  table = Elements,
+  mass = mass,
+  Compound = Compound,
+  mergeCompound=mergeCompound
+}

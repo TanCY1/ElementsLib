@@ -13,3 +13,8 @@ print(water:percentageByMass("H"))
 -- prints 0.11190674437968
 print(water:getAmount{grams="36.03",returnValue="moles"})
 -- prints 2.0
+MgO=Element.Compound:new({"Mg","O"})
+CO2=Element.Compound:new({"C",{"O",2}})
+MgCO3=Element.mergeCompound(MgO,CO2)
+print(MgCO3.mass)
+-- prints 84.313
