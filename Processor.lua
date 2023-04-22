@@ -295,11 +295,11 @@ local function compoundSearch(t)
 end
 
 local function reverseCompoundSearch(t)
-    local out= {}
-    for k,v in pairs(t) do
-      table.insert(out,{k,v})
-    end
-    return out
+  local out = {}
+  for k, v in pairs(t) do
+    table.insert(out, { k, v })
+  end
+  return out
 end
 
 Compound = {}
@@ -336,25 +336,20 @@ function Compound:getAmount(args)
   end
 end
 
-local function mergeCompound(c1, c2)
+local function mergeCompound(...)
   local out = {}
-  if (c1.value ~= nil) and (c2.value ~= nil) then
-    local c1 = compoundSearch(c1.value)
-    local c2 = compoundSearch(c2.value)
-    for k, v in pairs(c1) do
-      if out[k] ~= nil then
-        out[k] = out[k] + v
-      else
-        out[k] = v
+  local args = { ... }
+  for k,v in ipairs(args) do
+    if (v.value ~= nil)then
+      local c = compoundSearch(v.value)
+      for j, w in pairs(c) do
+        if out[j] ~= nil then
+          out[j] = out[j] + w
+        else
+          out[j] = w
+        end
       end
-    end
-    for k, v in pairs(c2) do
-
-      if out[k] ~= nil then
-        out[k] = out[k] + v
-      else
-        out[k] = v
-      end
+    else error"Not a Compound"
     end
   end
   return Compound:new(reverseCompoundSearch(out))
@@ -368,5 +363,5 @@ return {
   table = Elements,
   mass = mass,
   Compound = Compound,
-  mergeCompound=mergeCompound
+  mergeCompound = mergeCompound
 }
