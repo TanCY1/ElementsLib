@@ -260,6 +260,38 @@ local function Locateinit(t, s)
   return reversedElements
 end
 
+function HCF(x, y)
+	if y == 0 then
+		return x
+	end
+	local r = (x % y)
+	return HCF(y, r)
+end
+
+---Calculate the Highest Common Factor/Greatest Common Divisor
+---@param t table
+---@return integer
+function MultiHCF(t)
+	local out={}
+	if #t==1 then
+		return t[1]
+	end
+	for i in ipairs(t) do
+		if t[i]==1 then
+			return 1
+		end
+		if i < #t then
+			table.insert(out,HCF(t[i],t[i+1]))
+		end
+	end
+	--print(dump(out))
+	if #out==1 then
+		return out[1]
+	else return MultiHCF(out)
+	end
+end
+
+
 ---comment
 ---@param t table
 ---@return table
@@ -398,6 +430,21 @@ local function mergeCompound(...)
   end
   return Compound:new(reverseCompoundSearch(out))
 end
+
+function Compound:ef()
+  local beforeHCF={}
+  local out={}
+  for _,v in pairs(compoundSearch(self.value)) do
+    table.insert(beforeHCF,v)
+  end
+  HCF=MultiHCF(beforeHCF)
+  for _,v in pairs(self.value) do
+    --print(dump(v))
+    table.insert(out,{v[1],v[2]//HCF})
+  end
+  return out
+end
+
 
 
 

@@ -15,6 +15,7 @@ This is a lua module to use the Periodic Table
 |Compound:percentageByMass(Element)|Returns percentage by mass |
 |Compund:getAmount(args)|parameter return specifies property to return grams or moles and other parameter is given property|
 |mergeCompound(...)|Merges any number of Compounds into 1 Compound|
+|Compound:ef()|Returns empirical formula of compound|
 
 ## Example
 
@@ -26,7 +27,7 @@ print(Element.locate("Name","Silver","Symbol"))
 -- returns Ag
 print(Element.mass({"H",2},{"O"}))
 -- prints 18.015
-water=Element.Compound:new({{"H",2},{"O"}})
+water=Element.Compound:new{{"H",2},{"O"}}
 -- makes new compound
 print(water.mass)
 -- prints 18.015
@@ -34,9 +35,12 @@ print(water:percentageByMass("H"))
 -- prints 0.11190674437968
 print(water:getAmount{grams="36.03",returnValue="moles"})
 -- prints 2.0
-MgO=Element.Compound:new({"Mg","O"})
+MgO=Element.Compound:new{"Mg","O"}
 CO2=Element.Compound:new({"C",{"O",2}})
 MgCO3=Element.mergeCompound(MgO,CO2)
 print(MgCO3.mass)
 -- prints 84.313
+Nicotine=Compound:new{{"C",10},{"H",14},{"N",2}}
+print(Nicotine:ef())
+-- returns table in the form {{"C",5},{"H",7},{"N",1}}
 ```

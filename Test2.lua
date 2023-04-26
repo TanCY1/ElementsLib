@@ -1,41 +1,48 @@
 local function dump(o)
 	if type(o) == 'table' then
-	   local s = '{'
-	   for k,v in pairs(o) do
-		  if type(k) ~= 'number' then k = '"'..k..'"' end
-		  s = s .. k..'=' .. dump(v) .. ','
-	   end
-	   s=s:sub(1,-2).."}"
-	   return s
+	  local s = '{'
+	  for k, v in pairs(o) do
+		if type(k) ~= 'number' then k = '"' .. k .. '"' end
+		s = s .. k .. '=' .. dump(v) .. ','
+	  end
+	  s = s:sub(1, -2) .. "}"
+	  return s
 	else
-	   return tostring(o)
+	  return tostring(o)
 	end
- end
+  end
 
-Account={}
 
-function Account:new (o)
-   -- create object if user does not provide one
-    self.__index = self
-    self.balance=0
-    ou={}
-    ou.__type=o
-    setmetatable(ou, self)
-    return ou
+function HCF(x, y)
+	if y == 0 then
+		return x
+	end
+	local r = (x % y)
+	return HCF(y, r)
 end
 
-function Account:deposit(v)
-    self.balance=self.balance+v
+function MultiHCF(t)
+	local out={}
+	if #t==1 then
+		return t[1]
+	end
+	for i in ipairs(t) do
+		if t[i]==1 then
+			return 1
+		end
+		if i < #t then
+			table.insert(out,HCF(t[i],t[i+1]))
+		end
+	end
+	print(dump(out))
+	if #out==1 then
+		return out[1]
+	else return MultiHCF(out)
+	end
 end
 
-function Account:withdraw(v)
-    self.balance=self.balance-v
-end
+x={}
 
-
-a=Account:new(1)
-b=Account:new(-1)
-a:withdraw(1)
-b:deposit(1)
-print(a.__type)
-print(b.__type)
+local time = os.clock()
+print(MultiHCF({90,30,6}))
+print(string.format("elapsed time: %.2f\n", os.clock() - time))
