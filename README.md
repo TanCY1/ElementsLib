@@ -40,6 +40,9 @@ CO2=Element.Compound:new({"C",{"O",2}})
 MgCO3=Element.mergeCompound(MgO,CO2)
 print(MgCO3.mass)
 -- prints 84.313
+MgCO3=MgO:merge(CO2)
+print(MgCO3.mass)
+-- prints 84.313
 Nicotine=Compound:new{{"C",10},{"H",14},{"N",2}}
 print(Nicotine:ef())
 -- returns table in the form {{"C",5},{"H",7},{"N",1}}
