@@ -1,4 +1,3 @@
----@diagnostic disable: duplicate-set-field
 --This module was created by Tan Choon Yong 2023
 
 --[[                   GNU LESSER GENERAL PUBLIC LICENSE
@@ -166,6 +165,9 @@ whether future versions of the GNU Lesser General Public License shall
 apply, that proxy's public statement of acceptance of any version is
 permanent authorization for you to choose that version for the
 Library.]]
+
+---@diagnostic disable: duplicate-set-field
+
 Elements = require("Data").Elements
 
 
