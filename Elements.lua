@@ -42,7 +42,6 @@ local __bundle_require, __bundle_loaded, __bundle_register, __bundle_modules = (
 	return require, loaded, register, modules
 end)(require)
 __bundle_register("__root", function(require, _LOADED, __bundle_register, __bundle_modules)
----@diagnostic disable: duplicate-set-field
 --This module was created by Tan Choon Yong 2023
 
 --[[                   GNU LESSER GENERAL PUBLIC LICENSE
@@ -210,6 +209,9 @@ whether future versions of the GNU Lesser General Public License shall
 apply, that proxy's public statement of acceptance of any version is
 permanent authorization for you to choose that version for the
 Library.]]
+
+---@diagnostic disable: duplicate-set-field
+
 Elements = require("Data").Elements
 
 
