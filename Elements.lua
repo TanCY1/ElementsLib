@@ -447,8 +447,9 @@ function Compound:ef()
   return out
 end
 
-
-
+function Compound:merge(Compound2)
+  return mergeCompound(self,Compound2)
+end
 
 --A lua module relating to the periodic table
 return {
