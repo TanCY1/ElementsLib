@@ -24,3 +24,5 @@ print(MgCO3.mass)
 Nicotine=Elements.Compound:new{{"C",10},{"H",14},{"N",2}}
 print(Nicotine:ef())
 -- returns table in the form {{"C",5},{"H",7},{"N",1}}
+print(Elements.idealgaslaw{mols=1,temperature="273.15",pressure=100000,output="volume"})
+-- returns 0.002271095641486
