@@ -407,17 +407,55 @@ function Compound:merge(Compound2)
   return mergeCompound(self, Compound2)
 end
 
----Tempearture in Kelvin<br>
+---Temperature in Kelvin<br>
 ---Pressure in Pascals<br>
----Returns in cubic metres
----@param temperature number
----@param pressure number
----@param mols number
+---Returns in cubic metres<br>
+---Output either pressure, volume, mols or temperature
+---@param args table
 ---@return number
-local function gasvolume(temperature, pressure, mols)
+local function idealgaslaw(args)
+  local pressure = args.pressure
+  local volume = args.volume
+  local mols = args.mols
+  local temperature = args.temperature
+  local output = args.output
   local R = 8.31446261815324
-  return (mols * R*temperature)/pressure
+  if output == "volume" then
+    if volume then
+      return volume
+    elseif pressure and mols and temperature then
+      return (mols * R * temperature) / pressure
+    else
+      error "Not enough values"
+    end
+  elseif output == "mols" then
+    if mols then
+      return mols
+    elseif pressure and volume and temperature then
+      return (pressure * volume) / (R * temperature)
+    else
+      error "Not enough values"
+    end
+  elseif output == "pressure" then
+    if pressure then
+      return pressure
+    elseif volume and mols and temperature then
+      return (mols * R * temperature) / volume
+    end
+  elseif output == "temperature" then
+    if temperature then
+      return temperature
+    elseif pressure and volume and mols then
+      return (pressure * volume) / (mols * R)
+    else
+      error "Not enough values"
+    end
+  end
+  return nil or 0 or "" or false
 end
+
+
+
 
 --A lua module relating to the periodic table
 return {
@@ -425,5 +463,6 @@ return {
   table = Elements,
   mass = mass,
   Compound = Compound,
-  mergeCompound = mergeCompound
+  mergeCompound = mergeCompound,
+  idealgaslaw = idealgaslaw
 }
