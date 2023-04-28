@@ -21,7 +21,10 @@ function HCF(x, y)
 	return HCF(y, r)
 end
 
+counter=0
 function MultiHCF(t)
+	counter=counter+1
+	print(counter)
 	local out={}
 	if #t==1 then
 		return t[1]
@@ -34,7 +37,6 @@ function MultiHCF(t)
 			table.insert(out,HCF(t[i],t[i+1]))
 		end
 	end
-	print(dump(out))
 	if #out==1 then
 		return out[1]
 	else return MultiHCF(out)
@@ -44,5 +46,8 @@ end
 x={}
 
 local time = os.clock()
-print(MultiHCF({90,30,6}))
+for i=1,10000 do
+	table.insert(x,math.random(10,10000000)*10)
+end
+print(MultiHCF(x))
 print(string.format("elapsed time: %.2f\n", os.clock() - time))

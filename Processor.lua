@@ -165,7 +165,6 @@ whether future versions of the GNU Lesser General Public License shall
 apply, that proxy's public statement of acceptance of any version is
 permanent authorization for you to choose that version for the
 Library.]]
-
 ---@diagnostic disable: duplicate-set-field
 
 Elements = require("Data").Elements
@@ -219,36 +218,36 @@ local function Locateinit(t, s)
 end
 
 function HCF(x, y)
-	if y == 0 then
-		return x
-	end
-	local r = (x % y)
-	return HCF(y, r)
+  if y == 0 then
+    return x
+  end
+  local r = (x % y)
+  return HCF(y, r)
 end
 
 ---Calculate the Highest Common Factor/Greatest Common Divisor
 ---@param t table
 ---@return integer
 function MultiHCF(t)
-	local out={}
-	if #t==1 then
-		return t[1]
-	end
-	for i in ipairs(t) do
-		if t[i]==1 then
-			return 1
-		end
-		if i < #t then
-			table.insert(out,HCF(t[i],t[i+1]))
-		end
-	end
-	--print(dump(out))
-	if #out==1 then
-		return out[1]
-	else return MultiHCF(out)
-	end
+  local out = {}
+  if #t == 1 then
+    return t[1]
+  end
+  for i in ipairs(t) do
+    if t[i] == 1 then
+      return 1
+    end
+    if i < #t then
+      table.insert(out, HCF(t[i], t[i + 1]))
+    end
+  end
+  --print(dump(out))
+  if #out == 1 then
+    return out[1]
+  else
+    return MultiHCF(out)
+  end
 end
-
 
 ---comment
 ---@param t table
@@ -373,8 +372,8 @@ end
 local function mergeCompound(...)
   local out = {}
   local args = { ... }
-  for k,v in ipairs(args) do
-    if (v.value ~= nil)then
+  for k, v in ipairs(args) do
+    if (v.value ~= nil) then
       local c = compoundSearch(v.value)
       for j, w in pairs(c) do
         if out[j] ~= nil then
@@ -383,28 +382,41 @@ local function mergeCompound(...)
           out[j] = w
         end
       end
-    else error"Not a Compound"
+    else
+      error "Not a Compound"
     end
   end
   return Compound:new(reverseCompoundSearch(out))
 end
 
 function Compound:ef()
-  local beforeHCF={}
-  local out={}
-  for _,v in pairs(compoundSearch(self.value)) do
-    table.insert(beforeHCF,v)
+  local beforeHCF = {}
+  local out = {}
+  for _, v in pairs(compoundSearch(self.value)) do
+    table.insert(beforeHCF, v)
   end
-  HCF=MultiHCF(beforeHCF)
-  for _,v in pairs(self.value) do
+  HCF = MultiHCF(beforeHCF)
+  for _, v in pairs(self.value) do
     --print(dump(v))
-    table.insert(out,{v[1],v[2]//HCF})
+    table.insert(out, { v[1], v[2] // HCF })
   end
   return out
 end
 
 function Compound:merge(Compound2)
-  return mergeCompound(self,Compound2)
+  return mergeCompound(self, Compound2)
+end
+
+---Tempearture in Kelvin<br>
+---Pressure in Pascals<br>
+---Returns in cubic metres
+---@param temperature number
+---@param pressure number
+---@param mols number
+---@return number
+local function gasvolume(temperature, pressure, mols)
+  local R = 8.31446261815324
+  return (mols * R*temperature)/pressure
 end
 
 --A lua module relating to the periodic table
