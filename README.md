@@ -14,19 +14,22 @@ This is a lua module to use the Periodic Table
 |Compound.mass|Mass of Compound|
 |Compound:percentageByMass(Element)|Returns percentage by mass |
 |Compund:getAmount(args)|parameter return specifies property to return grams or moles and other parameter is given property|
-|mergeCompound(...)|Merges any number of Compounds into 1 Compound|
+|mergeCompound(...)|Merges any number of Compounds and returns 1 Compound|
+|Compound:merge(Compound)|Merges self with a compound then returns it|
+|Compound:ef()|Returns empirical formula of compound|
+|idealgaslaw(args)|Table with values for temperature in kelvin, pressure in pascals, volume in cubic metres and amount of substance in mols</br>Output can be any of these values|
 
 ## Example
 
 ```lua
 --Example
-local Element=require("Elements")
+local Elements=require("Elements")
 --prints the symbol for Silver
-print(Element.locate("Name","Silver","Symbol"))
+print(Elements.locate("Name","Silver","Symbol"))
 -- returns Ag
-print(Element.mass({"H",2},{"O"}))
+print(Elements.mass({"H",2},{"O"}))
 -- prints 18.015
-water=Element.Compound:new({{"H",2},{"O"}})
+water=Elements.Compound:new{{"H",2},{"O"}}
 -- makes new compound
 print(water.mass)
 -- prints 18.015
@@ -34,9 +37,17 @@ print(water:percentageByMass("H"))
 -- prints 0.11190674437968
 print(water:getAmount{grams="36.03",returnValue="moles"})
 -- prints 2.0
-MgO=Element.Compound:new({"Mg","O"})
-CO2=Element.Compound:new({"C",{"O",2}})
-MgCO3=Element.mergeCompound(MgO,CO2)
+MgO=Elements.Compound:new{"Mg","O"}
+CO2=Elements.Compound:new({"C",{"O",2}})
+MgCO3=Elements.mergeCompound(MgO,CO2)
 print(MgCO3.mass)
 -- prints 84.313
+MgCO3=MgO:merge(CO2)
+print(MgCO3.mass)
+-- prints 84.313
+Nicotine=Elements.Compound:new{{"C",10},{"H",14},{"N",2}}
+print(Nicotine:ef())
+-- returns table in the form {{"C",5},{"H",7},{"N",1}}
+print(Elements.idealgaslaw{mols=1,temperature="273.15",pressure=100000,output="volume"})
+-- returns 0.002271095641486
 ```
