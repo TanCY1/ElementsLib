@@ -17,6 +17,7 @@ This is a lua module to use the Periodic Table
 |mergeCompound(...)|Merges any number of Compounds and returns 1 Compound|
 |Compound:merge(Compound)|Merges self with a compound then returns it|
 |Compound:ef()|Returns empirical formula of compound|
+|Compound:string()|Returns string of value|
 |idealgaslaw(args)|Table with values for temperature in kelvin, pressure in pascals, volume in cubic metres and amount of substance in mols</br>Output can be any of these values|
 
 ## Example
@@ -48,6 +49,8 @@ print(MgCO3.mass)
 Nicotine=Elements.Compound:new{{"C",10},{"H",14},{"N",2}}
 print(Nicotine:ef())
 -- returns table in the form {{"C",5},{"H",7},{"N",1}}
+print(water:string())
+-- returns H20
 print(Elements.idealgaslaw{mols=1,temperature="273.15",pressure=100000,output="volume"})
 -- returns 0.002271095641486
 ```
