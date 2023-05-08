@@ -454,8 +454,17 @@ local function idealgaslaw(args)
   return nil or 0 or "" or false
 end
 
-
-
+function Compound:string()
+  local out = ""
+  for k, v in ipairs(self.value) do
+    if v[2] ~= 1 then
+      out = out .. v[1] .. v[2]
+    else
+      out = out .. v[1]
+    end
+  end
+  return out
+end
 
 --A lua module relating to the periodic table
 return {
